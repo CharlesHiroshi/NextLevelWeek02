@@ -2,30 +2,36 @@ import React from 'react'
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
 import './styles.css'
 
-function TeacherItem() {
+export interface Teacher {
+  id: number
+  avatar: string
+  bio: string
+  cost: number
+  name: string
+  subject: string
+  whatsapp: string
+}
+
+interface TeacherItemProps { teacher: Teacher }
+
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <article className="teacher-item">
       <header>
-        <img src="https://avatars2.githubusercontent.com/u/7002287?s=460&u=d489a70c068e635a55935c8d210ab1f9fa6365e8&v=4" alt="Charles Hiroshi" />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Charles Hiroshi</strong>
-          <span>Análise de Sistemas</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
-      <p>
-        Entusiasta das melhores tecnologias para Sistemas avançados.
-            <br /><br />
-            Apaixonado por difundir a experiência de desenvolvimento dos sistemas mais avançados da atualidade.
-          </p>
+      <p>{teacher.bio}</p>
       <footer>
-        <p>
-          Preço/Hora
-              <strong>¥1800</strong>
-        </p>
+        <p>Preço/Hora<strong>{teacher.cost}</strong></p>
         <button type="button">
           <img src={whatsappIcon} alt="WhatsApp" />
                 Entrar em contato
-              </button>
+        </button>
       </footer>
     </article>
   )
