@@ -1,4 +1,4 @@
-# NextLevelWeek02
+# Next Level Week 02 
 
 Repositório do projeto da **Next Level Week #02** da [RocketSeat](https://rocketseat.com.br/).
 
